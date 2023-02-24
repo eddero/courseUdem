@@ -1,0 +1,26 @@
+doctype html
+html
+    head
+        nav
+            l
+                li
+                    a(href='/') Home
+                li
+                    a(href='/courses') Courses
+                li
+                    a(href='/auths/login') Login
+                li
+                    a(href='/logout') Logout
+                li
+                    a(href='/auths/register') Register
+        title Image and videos from S3
+        body
+            h1 Display Images and Videos from S3
+            each image in images
+                h2= image.title
+                desc= image.description
+                img(src=image.thumbnailUrl)
+                br
+                video(controls)
+                    source(src=image.videoUrl)
+                br

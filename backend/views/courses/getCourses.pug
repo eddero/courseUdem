@@ -1,0 +1,27 @@
+html
+    head
+        nav
+            l
+                li
+                    a(href='/') Home
+                li
+                    a(href='/courses') Courses
+                li
+                    a(href='/auths/login') Login
+                li
+                    a(href='/logout') Logout
+                li
+                    a(href='/auths/register') Register
+        title Display courses
+        body
+            h1 Display courses
+            l
+            each course in courses
+                li
+                    a(href=`/courses/${course._id}/`)= course.title
+                    br
+                    p=course.description
+                    br
+                    a(href=`/lessons/${course._id}/`) Lesson
+                    br
+                    br

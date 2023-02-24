@@ -1,0 +1,13 @@
+# Project exclude paths
+/backend/node_modules/sift/src/core.d.ts
+/backend/node_modules/sift/src/core.js
+/backend/node_modules/sift/src/core.js.map
+/backend/node_modules/sift/src/index.d.ts
+/backend/node_modules/sift/src/index.js
+/backend/node_modules/sift/src/index.js.map
+/backend/node_modules/sift/src/operations.d.ts
+/backend/node_modules/sift/src/operations.js
+/backend/node_modules/sift/src/operations.js.map
+/backend/node_modules/sift/src/utils.d.ts
+/backend/node_modules/sift/src/utils.js
+/backend/node_modules/sift/src/utils.js.map

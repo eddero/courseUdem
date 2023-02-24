@@ -1,0 +1,12 @@
+block content
+    h1 Upload Course
+    form(method='post' action='/courses')
+        h3 Upload a new course
+        div
+            label(for='title') Title:
+            input#title(type='text' name='title' required)
+        div
+            label(for='description') Description:
+            textarea#description(name='description' required)
+        div
+            input(type='submit' value='Submit')

@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title Register Page
+        nav
+            l
+                li
+                    a(href='/') Home
+                li
+                    a(href='/courses') Courses
+                li
+                    a(href='/auths/login') Login
+                li
+                    a(href='/logout') Logout
+                li
+                    a(href='/auths/register') Register
+        body
+            h1 Register User
+            form(action='/auths/register', method='post')
+                label(for='username') Username:
+                br
+                input(type='text', id='username', name='username')
+                br
+                label(for='email') Email:
+                br
+                input(type='email', id='email', name='email')
+                br
+                label(for='password') Password:
+                br
+                input(type='password', id='password', name='password')
+                br
+                br
+                button(type='submit') Register

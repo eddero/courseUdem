@@ -1,0 +1,28 @@
+doctype html
+html
+    head
+        title Login Page
+        nav
+            l
+                li
+                    a(href='/') Home
+                li
+                    a(href='/courses') Courses
+                li
+                    a(href='/auths/login') Login
+                li
+                    a(href='/logout') Logout
+                li
+                    a(href='/auths/register') Register
+        body
+            h1 Login
+            form(action='/auths/login', method='post')
+                label(for='username') Username:
+                input#username(type='text', name='username')
+                br
+                br
+                label(for='password') Password:
+                input#password(type='password', name='password')
+                br
+                br
+                input(type='submit', value='Submit')

@@ -1,0 +1,30 @@
+
+block content
+    nav
+        l
+            li
+                a(href='/') Home
+            li
+                a(href='/courses') Courses
+            li
+                a(href='/auths/login') Login
+            li
+                a(href='/logout') Logout
+            li
+                a(href='/auths/register') Register
+    h1 Upload Lesson
+    form(action='lessons', method='post', enctype='multipart/form-data')
+        div
+            label(for='title') Title:
+            input(type='text', id='title', name='title')
+        div
+            label(for='description') Description:
+            textarea(id='description', name='description')
+        div
+            label(for='thumbnail') Thumbnail:
+            input(type='file', id='thumbnail', name='thumbnail')
+        div
+            label(for='video') Video:
+            input(type='file', id='video', name='video')
+        div
+            button(type='submit') Submit
