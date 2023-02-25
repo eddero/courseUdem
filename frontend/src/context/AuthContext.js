@@ -12,8 +12,12 @@ const AuthProvider = ({children}) => {
     useEffect(() => {
         const tokenSession = sessionStorage.getItem('authToken');
         const tokenLocal = localStorage.getItem('authToken');
+
+        // Remember to change from saving userid in sessionStorage
         const userId = sessionStorage.getItem('userId');
         if (tokenSession && userId && tokenLocal) {
+
+
             setIsAuthenticated(true)
 
         }
