@@ -64,6 +64,15 @@ const getCoursesUser = async (req, res, next) => {
     }
 }
 
+const deleteCourse = async (req, res, next) => {
+
+    try {
+
+    } catch (error) {
+        next(error);
+    }
+}
+
 
 module.exports = {
     createCourse,

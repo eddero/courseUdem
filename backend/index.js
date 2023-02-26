@@ -30,7 +30,7 @@ const app = express();
 
 const errorHandler = (err, req, res, next) => {
     console.error(err.message);
-    res.status(500).send("Something went wrong. Please try again later. ");
+    res.status(500).send("Something went wrong. Please try again later.");
 };
 
 // middleware
@@ -70,10 +70,6 @@ app.use("/enrollments", enrollmentRoutes)
 app.use("/lessons", lessonRoutes)
 app.use("/auths", authRoutes)
 
-
-
-
-
 // error handler at the end
 app.use(errorHandler);
 
@@ -97,7 +93,6 @@ app.get('/', function(req, res, next) {
 })
 
 
-
 // set database
 mongoose.set("strictQuery", false);
 mongoose.connect(process.env.MONGO_URI)
@@ -110,7 +105,6 @@ mongoose.connect(process.env.MONGO_URI)
     .catch((error) => {
         console.log(error);
     })
-
 
 // 404 page
 app.use((req, res) => {
