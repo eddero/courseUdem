@@ -6,29 +6,25 @@ const AuthContext = createContext();
 
 const AuthProvider = ({children}) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
-
     const {handlePost} = usePostRequest("/auths/logout")
 
     useEffect(() => {
-        const tokenSession = sessionStorage.getItem('authToken');
-        const tokenLocal = localStorage.getItem('authToken');
+        const authToken1 = sessionStorage.getItem('authToken');
+        const authToken2 = localStorage.getItem('authToken');
+        const session = sessionStorage.getItem('session');
 
         // Remember to change from saving userid in sessionStorage
         const userId = sessionStorage.getItem('userId');
-        if (tokenSession && userId && tokenLocal) {
 
 
-            setIsAuthenticated(true)
-
-        }
-    }, []);
+    }, [setIsAuthenticated]);
 
     const logout = async () => {
         try {
             await handlePost();
             setIsAuthenticated(false);
             sessionStorage.clear();
-            localStorage.removeItem('authToken');
+            localStorage.clear();
         } catch (error) {
             console.error(error);
         }
@@ -36,7 +32,7 @@ const AuthProvider = ({children}) => {
 
 
     return (
-        <AuthContext.Provider value={{isAuthenticated, setIsAuthenticated, logout}}>
+        <AuthContext.Provider value={{ setIsAuthenticated, logout}}>
             {children}
         </AuthContext.Provider>
     );

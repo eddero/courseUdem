@@ -4,6 +4,7 @@ import useAuthContext from "../hooks/useAuthContext";
 const Navbar = () => {
 
     const {isAuthenticated, logout} = useAuthContext();
+    const session = sessionStorage.getItem('session');
 
     const handleLogout = () => {
         logout();
@@ -17,7 +18,7 @@ const Navbar = () => {
                 <Link to="/courses">
                     <h2>Courses</h2>
                 </Link>
-                {isAuthenticated ? (
+                {session ? (
                     <>
                         <Link to="/instructor">
                             <h2>Instructor</h2>
