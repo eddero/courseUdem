@@ -6,7 +6,6 @@ import AuthContext from "../context/AuthContext";
 const useAuthContext = () => {
     const authContext = useContext(AuthContext);
 
-    // Throw an error if the hook is used outside of an AuthProvider
     if (!authContext) {
         throw new Error("useAuthContext must be used within an AuthProvider");
     }
