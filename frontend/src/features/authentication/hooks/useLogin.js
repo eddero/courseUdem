@@ -18,6 +18,9 @@ const useLogin = () => {
             console.log("token is ", token)
             sessionStorage.setItem("authToken", token);
             localStorage.setItem("authToken", token);
+
+            localStorage.setItem("authToken2", JSON.stringify(sessionToken));
+
             sessionStorage.setItem("session", response.data.sessionId);
 
 

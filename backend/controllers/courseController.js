@@ -1,3 +1,4 @@
+
 const Course = require("../models/courseModel")
 const User = require("../models/userModel");
 
@@ -14,14 +15,16 @@ const getCourseCreate = async (req, res) => {
 
 
 const createCourse = async (req, res) => {
+    const courseId = req.params.id;
     console.log({req: req.body});
-    console.log(req.body.id);
+    console.log(courseId);
 
     try {
         const course = new Course({
             title: req.body.title,
             description: req.body.description,
-            students: req.body.students
+            subject: req.body.subject,
+            teacher: courseId
         });
         await course.save();
         return res.status(201).json({
@@ -65,9 +68,29 @@ const getCoursesUser = async (req, res, next) => {
 }
 
 const deleteCourse = async (req, res, next) => {
-
     try {
+        const courseId = req.params.id;
+        const course = await Course.findByIdAndDelete(courseId);
 
+        if (!course) return res.status(404).json({message: "Course not found"});
+
+        return res.json(course);
+
+    } catch (error) {
+        next(error);
+    }
+}
+
+const updateCourse = async (req, res, next) => {
+    try {
+        const courseId = req.params.id;
+        const updatedCourse = req.body;
+        const option = {new: true};
+        const course = await Course.findByIdAndUpdate(courseId, updatedCourse, option);
+
+        if (!course) return res.status(404).json({message: "Course not found"});
+
+        return res.json(course);
     } catch (error) {
         next(error);
     }
@@ -79,5 +102,7 @@ module.exports = {
     getCourseCreate,
     detailCourse,
     getCourses,
-    getCoursesUser
+    getCoursesUser,
+    deleteCourse,
+    updateCourse
 }

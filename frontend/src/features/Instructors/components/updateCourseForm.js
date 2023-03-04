@@ -2,11 +2,11 @@ import useForm from "../../../hooks/useForm";
 import FormInput from "../../../components/form/FormInput";
 import Button from "../../../components/ui/Button";
 
-const CourseForm = ({onSubmit}) => {
+const UpdateCourseForm = ({onSubmit}) => {
     const {values, handleSubmit, handleChange, resetForm} = useForm({
         title: "",
-        description: "",
-        subject: "",
+        description:"",
+        subject:""
     });
 
     return (
@@ -41,7 +41,7 @@ const CourseForm = ({onSubmit}) => {
                     required
                 />
             </div>
-            <Button type="submit">Create course</Button>
+            <Button type="submit">Update course</Button>
             <Button type="button" onClick={resetForm}>
                 Reset
             </Button>
@@ -49,4 +49,4 @@ const CourseForm = ({onSubmit}) => {
     );
 }
 
-export default CourseForm;
+export default UpdateCourseForm;
