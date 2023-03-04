@@ -1,28 +1,26 @@
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import axios from "axios";
 
 
-const usePostRequest = (url) => {
+const useDeleteRequest = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-
-    const handlePost = async (postData) => {
+    const handleDelete = async () => {
         setIsLoading(true);
         try {
-            const response = await axios.post(url, postData);
+            const response = await axios.delete(url);
             setData(response.data);
-            return response;
+            return response
         } catch (error) {
             setError(error);
         } finally {
             setIsLoading(false);
         }
-
     };
 
+    return {data, error, isLoading, handleDelete}
 
-    return {data, error, isLoading, handlePost}
 }
 
-export default usePostRequest;
+export default useDeleteRequest;

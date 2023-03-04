@@ -12,6 +12,9 @@ import LessonLists from "./pages/Lesson/LessonList"
 import {AuthProvider} from "./context/AuthContext";
 import PrivateRoute from "./Routes/PrivateRoute";
 import Instructor from "./pages/Instructor/Instructor";
+import CreateCourse from "./features/Instructors/services/createCourse";
+import UpdateCourse from "./features/Instructors/services/updateCourse";
+
 
 
 function App() {
@@ -42,6 +45,16 @@ function App() {
                                         <Instructor/>
                                     </PrivateRoute>}>
                                 </Route>
+                            </Route>
+                            <Route path="/create" element={
+                                <PrivateRoute>
+                                    <CreateCourse/>
+                                </PrivateRoute>}>
+                            </Route>
+                            <Route path="/update/course/:id" element={
+                                <PrivateRoute>
+                                    <UpdateCourse/>
+                                </PrivateRoute>}>
                             </Route>
                         </Routes>
                     </div>
