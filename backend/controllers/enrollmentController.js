@@ -6,10 +6,18 @@ const getEnrollments = async (req, res, next) => {
 
 }
 const createEnrollment = async (req, res, next) => {
-    console.log(req.params.userId, req.params.id)
     try {
         const userId = req.params.userId;
         const courseId = req.params.id;
+
+        // Check if there is an enrollment for this user and course
+        const existingEnrollment = await Enrollment.findOne({ user: userId, course: courseId});
+        if (existingEnrollment) {
+            return res.status(404).json({
+                message: "Already enrolled"
+            });
+        }
+
         const enrollment = new Enrollment({
             user: userId,
             course: courseId,

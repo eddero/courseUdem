@@ -67,7 +67,7 @@ const logout = async (req, res) => {
 
 const ensureAuthenticated = (req, res, next) => {
     if (req.isAuthenticated()) {
-        console.log("already logged in",req.session);
+        console.log("already logged in ",req.session);
         return res.send({message: "Already logged in"});
     }
     next();
