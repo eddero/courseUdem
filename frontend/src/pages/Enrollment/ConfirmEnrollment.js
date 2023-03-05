@@ -8,6 +8,10 @@ const ConfirmEnrollment = () => {
     const { course } = location.state;
     const {createEnrollment, error, isLoading} = CreateEnrollment(course._id);
 
+    if (isLoading) return <p>Loading enrollment detail...</p>
+
+    if (error) return <p>Error fetching enrollment</p>
+
     const enroll = (values) => {
         createEnrollment(values);
     }

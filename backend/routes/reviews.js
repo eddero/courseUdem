@@ -1,5 +1,5 @@
 const express = require("express");
-const {} = require("../controllers/reviewController")
+const {createReview} = require("../controllers/reviewController")
 
 const router = express.Router();
 
@@ -7,7 +7,7 @@ router.get("/");
 
 router.get("/:id");
 
-router.post("/");
+router.post("/:userId/create/:id", createReview);
 
 router.put("/");
 
