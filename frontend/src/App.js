@@ -14,6 +14,8 @@ import PrivateRoute from "./Routes/PrivateRoute";
 import Instructor from "./pages/Instructor/Instructor";
 import CreateCourse from "./features/Instructors/services/createCourse";
 import UpdateCourse from "./features/Instructors/services/updateCourse";
+import EnrollmentPage from "./pages/Enrollment/EnrollmentPage";
+import ConfirmEnrollment from "./pages/Enrollment/ConfirmEnrollment";
 
 
 
@@ -54,6 +56,16 @@ function App() {
                             <Route path="/update/course/:id" element={
                                 <PrivateRoute>
                                     <UpdateCourse/>
+                                </PrivateRoute>}>
+                            </Route>
+                            <Route path="/enrollment" element ={
+                                <PrivateRoute>
+                                    <EnrollmentPage/>
+                                </PrivateRoute>}>
+                            </Route>
+                            <Route path="/confirmEnrollment" element ={
+                                <PrivateRoute>
+                                    <ConfirmEnrollment/>
                                 </PrivateRoute>}>
                             </Route>
                         </Routes>

@@ -8,8 +8,6 @@ const PrivateRoute = ({ children }) => {
 
     if (!session) setIsAuthenticated(false);
 
-    console.log("Authenticated is ", session)
-
     return session ? children : <Navigate to="/login" />;
 }
 
