@@ -9,8 +9,6 @@ router.post("/:userId/create/:id", createEnrollment);
 
 router.get("/:id");
 
-
-
 router.put("/");
 
 router.delete("/delete/:id");

@@ -1,7 +1,7 @@
 import {Link, useParams} from "react-router-dom";
 import useFetch from "../../hooks/useFetch";
 import Button from "../../components/ui/Button";
-import usePostRequest from "../../hooks/usePostRequest";
+import ReviewPage from "../Review/ReviewPage";
 
 
 function CourseDetails() {
@@ -9,7 +9,6 @@ function CourseDetails() {
     const {id} = useParams()
 
     const {data, error, isLoading} = useFetch(`/courses/${id}`)
-    const {handlePost} = usePostRequest();
 
     if (isLoading) return <p>Loading course detail...</p>
 
@@ -29,6 +28,9 @@ function CourseDetails() {
                 <Link to="/confirmEnrollment" state={{ course: data }}>
                     <Button>Enroll here</Button>
                 </Link>
+            </div>
+            <div>
+                <ReviewPage course={data}/>
             </div>
         </div>
 
