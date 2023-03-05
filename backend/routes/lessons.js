@@ -2,7 +2,7 @@ const express = require("express");
 const lessonController = require("../controllers/lessonController");
 
 
-const {Upload} = require("../s3Service");
+const {Upload} = require("../Services/s3Service");
 const bodyParser = require("body-parser");
 const multer = require("multer");
 

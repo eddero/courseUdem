@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 
-const enrollmentSchema = new mongoose.Schema({
+const Schema = mongoose.Schema
+
+const enrollmentSchema = new Schema({
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
@@ -17,4 +19,8 @@ const enrollmentSchema = new mongoose.Schema({
     }
 });
 
+enrollmentSchema.index({ user: 1, course: 1 }, { unique: true });
+
 const Enrollment = mongoose.model('Enrollment', enrollmentSchema);
+
+module.exports = Enrollment;

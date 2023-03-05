@@ -10,6 +10,7 @@ const usePostRequest = (url) => {
     const handlePost = async (postData) => {
         setIsLoading(true);
         try {
+            console.log(url)
             const response = await axios.post(url, postData);
             setData(response.data);
             return response;

@@ -23,6 +23,9 @@ const Navbar = () => {
                         <Link to="/instructor">
                             <h2>Instructor</h2>
                         </Link>
+                        <Link to="/enrollment">
+                            <h2>Enrollment</h2>
+                        </Link>
                         <button onClick={handleLogout}>
                             <h2>Logout</h2>
                         </button>

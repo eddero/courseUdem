@@ -1,13 +1,15 @@
 const express = require("express");
-const {} = require("../controllers/enrollmentController")
+const {createEnrollment} = require("../controllers/enrollmentController")
 
 const router = express.Router();
 
 router.get("/");
 
+router.post("/:userId/create/:id", createEnrollment);
+
 router.get("/:id");
 
-router.post("/");
+
 
 router.put("/");
 
