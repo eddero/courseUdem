@@ -1,4 +1,4 @@
-import GetReview from "../../features/Reviews/services/getReview";
+import GetReviews from "../../features/Reviews/services/getReviews";
 import CreateReview from "../../features/Reviews/services/createReview";
 
 const ReviewPage = ({course}) => {
@@ -7,7 +7,7 @@ const ReviewPage = ({course}) => {
         <div>
             <h2>Review page for {course && course.title}</h2>
             <div>
-                <GetReview/>
+                <GetReviews courseId={course && course._id}/>
             </div>
             <div>
                 <CreateReview courseId ={course && course._id}/>
