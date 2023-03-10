@@ -1,6 +1,22 @@
 const Review = require("../models/reviewModel");
 
-const getReviews = async (req, res, next) => {
+const getReviewsOfCourse = async (req, res, next) => {
+
+    try {
+        const courseId = req.params.id
+        const reviews = await Review.find({course: courseId}).sort({createdAt: -1});
+
+        if (reviews.length === 0) {
+            return res.status(404).json({
+                message: `No reviews found for course with id ${courseId}`
+            });
+        }
+
+        res.status(200).json(reviews);
+
+    } catch (error) {
+        next(error);
+    }
 
 }
 
@@ -55,5 +71,6 @@ const updateReview = async (req, res, next) => {
 }
 
 module.exports = {
-    createReview
+    createReview,
+    getReviewsOfCourse
 }

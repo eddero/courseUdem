@@ -6,10 +6,12 @@ const useDeleteRequest = (url) => {
     const [data, setData] = useState(null);
     const [error, setError] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
+
     const handleDelete = async () => {
         setIsLoading(true);
         try {
             const response = await axios.delete(url);
+
             setData(response.data);
             return response
         } catch (error) {
